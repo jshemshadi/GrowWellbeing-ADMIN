@@ -1,1 +1,35 @@
-{}
+{
+  "someThingWrong": "Something wrong. please try again",
+  "successful": "Successful",
+
+  "login_title": "LOGIN",
+  "login_chooseAccountType": "Choose Account Type",
+  "login_accountType_admin": "Admin",
+  "login_message_hello": "Hello",
+  "login_message_fill": "Please fill out the form bellow to get started",
+  "login_usernameHelper": "Username",
+  "login_passwordHelper": "Password",
+  "login_forgot": "Forgot?",
+  "login_loginBtn": "LOGIN",
+
+  "forgetPassword_title": "FORGOT PASSWORD?",
+  "forgetPassword_message_hello": "Hello",
+  "forgetPassword_message_fill": "Please fill out the form bellow to get started",
+  "forgetPassword_emailHelper": "Email",
+  "forgetPassword_haveAccount": "Have account?",
+  "forgetPassword_login": "Login",
+  "forgetPassword_forgetPasswordBtn": "Send",
+
+  "verifyPasswordReset_title": "VERIFY EMAIL ADDRESS",
+  "verifyPasswordReset_message_hello": "Hello",
+  "verifyPasswordReset_message_fill": "Please enter the verification code we've sent to your email.",
+  "verifyPasswordReset_didentGet": "Didn't get the code?",
+  "verifyPasswordReset_resend": "Resend",
+  "verifyPasswordReset_goBack": "Go Back",
+  "verifyPasswordReset_verifyPasswordResetBtn": "VERIFY",
+
+  "newPassword_title": "NEW PASSWORD",
+  "newPassword_message_fill": "Please fill out the form bellow to get started",
+  "newPassword_passwordHelper": "Password",
+  "newPassword_newPasswordBtn": "Submit"
+}

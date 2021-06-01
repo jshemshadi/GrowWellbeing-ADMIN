@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import { ConnectedRouter } from "connected-react-router";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@material-ui/styles";
@@ -8,12 +9,18 @@ import Routes from "./routes";
 import { create } from "jss";
 import { StylesProvider, jssPreset } from "@material-ui/core/styles";
 
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Login from "./screens/login";
+import ForgetPassword from "./screens/forgetPassword";
+import VerifyPasswordReset from "./screens/verifyPasswordReset";
+import NewPassword from "./screens/newPassword";
 import Layout from "./components/main/Layout";
 
 const jss = create({ plugins: [...jssPreset().plugins] });
 
 const Main = ({ history, store }) => {
+  useEffect(() => {}, []);
+
   return (
     <div
       style={{
@@ -31,6 +38,18 @@ const Main = ({ history, store }) => {
           <Provider store={store}>
             <ConnectedRouter history={history}>
               <Switch>
+                <Route exact path="/login" component={Login} />
+                <Route
+                  exact
+                  path="/forgetPassword"
+                  component={ForgetPassword}
+                />
+                <Route
+                  exact
+                  path="/verifyPasswordReset"
+                  component={VerifyPasswordReset}
+                />
+                <Route exact path="/newPassword" component={NewPassword} />
                 <Layout history={history}>
                   <Routes />
                 </Layout>

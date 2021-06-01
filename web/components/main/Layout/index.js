@@ -1,5 +1,20 @@
 import React from "react";
+import { Box } from "@material-ui/core";
 
-export default function Layout(props) {
-  return <div className={classes.root}></div>;
+import useStyles from "./style";
+
+import MyAppBar from "../AppBar";
+import Footer from "../Footer";
+
+export default function Layout({ children }) {
+  const classes = useStyles();
+
+  return (
+    <Box className={classes.root}>
+      <MyAppBar />
+      LAYOUT
+      {children}
+      <Footer />
+    </Box>
+  );
 }

@@ -1,5 +1,4 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import { blue } from "@material-ui/core/colors";
 import appStyle from "./app.scss";
 
 const theme = ({ direction }) =>
@@ -8,20 +7,31 @@ const theme = ({ direction }) =>
     direction,
     palette: {
       primary: {
-        main: "#23d000",
+        main: "#32CB9D",
       },
       secondary: {
-        main: blue[300],
+        main: "#39B84F",
+      },
+      info: {
+        main: "#EEEFF6",
+      },
+      grey: { main: "#C6C7CF" },
+      error: {
+        main: "#E26B86",
       },
     },
-    typography: {
-      fontFamily: "Roboto",
+    Typography: {
+      fontFamily: "OpenSans",
+      fontSize: 16,
+    },
+    Link: {
+      fontFamily: "OpenSans",
       fontSize: 16,
     },
     overrides: {
       MuiCssBaseline: {
         "@global": {
-          "@font-face": ["IRANSansWeb"],
+          "@font-face": ["OpenSans"],
         },
       },
     },
