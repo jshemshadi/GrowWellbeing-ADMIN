@@ -123,12 +123,6 @@ export default function VerifyPasswordReset(props) {
             align="center"
             className={classes.verifyPasswordReset_text}
           >
-            {t("verifyPasswordReset_message_hello")}
-          </Typography>
-          <Typography
-            align="center"
-            className={classes.verifyPasswordReset_text}
-          >
             {t("verifyPasswordReset_message_fill")}
           </Typography>
           &nbsp;

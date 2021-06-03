@@ -2,34 +2,43 @@
   "someThingWrong": "Something wrong. please try again",
   "successful": "Successful",
 
-  "login_title": "LOGIN",
+  "appbar_profile": "Profile",
+  "appbar_myAccount": "My Account",
+  "appbar_messages": "Messages",
+  "appbar_notifications": "Notifications",
+
+  "login_title": "Log in",
   "login_chooseAccountType": "Choose Account Type",
   "login_accountType_admin": "Admin",
+  "login_accountType_staff": "Staff",
   "login_message_hello": "Hello",
   "login_message_fill": "Please fill out the form bellow to get started",
   "login_usernameHelper": "Username",
   "login_passwordHelper": "Password",
   "login_forgot": "Forgot?",
-  "login_loginBtn": "LOGIN",
+  "login_loginBtn": "Log in",
 
-  "forgetPassword_title": "FORGOT PASSWORD?",
-  "forgetPassword_message_hello": "Hello",
+  "forgetPassword_title": "Forget Password?",
   "forgetPassword_message_fill": "Please fill out the form bellow to get started",
   "forgetPassword_emailHelper": "Email",
   "forgetPassword_haveAccount": "Have account?",
-  "forgetPassword_login": "Login",
+  "forgetPassword_login": "Log in",
   "forgetPassword_forgetPasswordBtn": "Send",
 
-  "verifyPasswordReset_title": "VERIFY EMAIL ADDRESS",
-  "verifyPasswordReset_message_hello": "Hello",
+  "verifyPasswordReset_title": "Verify Email Address",
   "verifyPasswordReset_message_fill": "Please enter the verification code we've sent to your email.",
   "verifyPasswordReset_didentGet": "Didn't get the code?",
   "verifyPasswordReset_resend": "Resend",
   "verifyPasswordReset_goBack": "Go Back",
-  "verifyPasswordReset_verifyPasswordResetBtn": "VERIFY",
+  "verifyPasswordReset_verifyPasswordResetBtn": "Verify",
 
-  "newPassword_title": "NEW PASSWORD",
+  "newPassword_title": "New Password",
   "newPassword_message_fill": "Please fill out the form bellow to get started",
   "newPassword_passwordHelper": "Password",
-  "newPassword_newPasswordBtn": "Submit"
+  "newPassword_newPasswordBtn": "Submit",
+
+  "drawer_dashboard": "Dashboard",
+  "drawer_users": "Users",
+  "drawer_appointment": "Appointments",
+  "drawer_signout": "Sign out"
 }

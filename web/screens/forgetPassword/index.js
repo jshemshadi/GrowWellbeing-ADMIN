@@ -95,9 +95,6 @@ export default function ForgetPassword(props) {
             }}
           />
           <Typography align="center" className={classes.forgetPassword_text}>
-            {t("forgetPassword_message_hello")}
-          </Typography>
-          <Typography align="center" className={classes.forgetPassword_text}>
             {t("forgetPassword_message_fill")}
           </Typography>
           &nbsp;

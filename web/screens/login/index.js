@@ -167,6 +167,43 @@ export default function LogIn(props) {
                 </Typography>
               </div>
             </Badge>
+
+            <Badge
+              color="primary"
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              invisible={accountType !== "staff"}
+              badgeContent=" "
+            >
+              <div
+                className={
+                  accountType === "staff"
+                    ? classes.login_form_account_active
+                    : classes.login_form_account_deactive
+                }
+                onClick={() => {
+                  setAccountType("staff");
+                }}
+                style={{
+                  backgroundImage: `url(${"../../sources/Pic/Staff.png"})`,
+                  margin: "0 0 0 20px",
+                }}
+              >
+                <Typography
+                  align="center"
+                  style={{
+                    fontWeight: "bold",
+                    position: "absolute",
+                    bottom: 5,
+                    left: "30%",
+                  }}
+                >
+                  {t("login_accountType_staff")}
+                </Typography>
+              </div>
+            </Badge>
           </div>
           &nbsp;
           <Typography align="center" className={classes.login_text}>
