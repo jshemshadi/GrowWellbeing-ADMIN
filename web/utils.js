@@ -88,7 +88,7 @@ export const bindActionCreators = (actionContainerMapArray, dispatch) => {
   return allActions;
 };
 
-export const post = async (url, data) => {
+export const post = async (url, data = {}) => {
   let config = {};
   if (localStorage.getItem("token")) {
     config = {

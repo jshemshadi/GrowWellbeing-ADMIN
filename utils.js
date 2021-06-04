@@ -134,9 +134,18 @@ module.exports = {
     }
   },
 
-  get: async (url, options) => {
+  get: async (url, headers) => {
     try {
-      const response = await axios.get(env.apiAddress + url, options);
+      let config = [];
+
+      if (headers) {
+        config = {
+          headers: {
+            Authorization: headers["authorization"],
+          },
+        };
+      }
+      const response = await axios.get(env.apiAddress + url, config);
       return response.data;
     } catch (error) {
       return error.response ? error.response.data : null;

@@ -40,5 +40,16 @@
   "drawer_dashboard": "Dashboard",
   "drawer_users": "Users",
   "drawer_appointment": "Appointments",
-  "drawer_signout": "Sign out"
+  "drawer_signout": "Sign out",
+
+  "appointmentModal_detail": "Detail of Appointment",
+  "appointmentModal_title": "Set an Appointment",
+  "appointmentModal_description": "Selected Date",
+  "appointmentModal_dob": "DoB",
+  "appointmentModal_gardianName": "Gardian Name",
+  "appointmentModal_contactNumber": "Contact Number",
+  "appointmentModal_address": "Address",
+  "appointmentModal_summary": "Summary",
+  "appointmentModal_submit": "Submit",
+  "appointmentModal_cancel": "Cancel"
 }
