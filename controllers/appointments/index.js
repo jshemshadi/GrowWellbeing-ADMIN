@@ -1,23 +1,6 @@
 module.exports = {
-  addNew: async (
-    { date, DoB, contactNumber, gardianName, address, summary },
-    headers
-  ) => {
-    return utils.post(
-      "/appointments",
-      {
-        date,
-        DoB,
-        contactNumber,
-        gardianName,
-        address,
-        summary,
-      },
-      headers
-    );
-  },
-  getUserAppointments: async ({ search, page, limit, sort }, headers) => {
-    let url = "/appointments";
+  getAllAppointments: async ({ search, page, limit, sort }, headers) => {
+    let url = "/appointments/getAllAppointments";
     if (search || page || limit || sort) {
       url += "?";
     }
@@ -34,5 +17,9 @@ module.exports = {
       url += `search=${sort}`;
     }
     return utils.get(url, headers);
+  },
+  assign: async ({ appointmentId, GPId }, headers) => {
+    let url = "/appointments/assign";
+    return utils.post(url, { appointmentId, GPId }, headers);
   },
 };

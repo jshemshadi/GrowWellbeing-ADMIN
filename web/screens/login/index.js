@@ -55,6 +55,7 @@ export default function LogIn(props) {
           mobile,
           guid,
           token,
+          role,
         } = data;
         localStorage.setItem("username", apiUserName);
         localStorage.setItem("firstName", firstName);
@@ -63,6 +64,7 @@ export default function LogIn(props) {
         localStorage.setItem("mobile", mobile);
         localStorage.setItem("guid", guid);
         localStorage.setItem("token", token);
+        localStorage.setItem("role", role);
         props.history.push("/dashboard");
       } else {
         setMessage({ text: error, type: "error" });

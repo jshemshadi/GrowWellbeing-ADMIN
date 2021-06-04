@@ -38,7 +38,7 @@ export default function Home(props) {
             display: "flex",
           }}
         >
-          Grow Wellbeing
+          Grow Wellbeing - Admin Panel
         </Grid>
         <Grid
           item

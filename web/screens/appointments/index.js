@@ -2,8 +2,9 @@ import { LinearProgress, useMediaQuery, useTheme } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 
 import useStyles from "./style";
-import Calendar from "../../components/main/Calendar";
+import CollapsibleTable from "../../components/main/CollapsibleTable";
 import CustomizedSnackbars from "../../components/main/Snakbar";
+import i18n, { t } from "../../i18n";
 
 export default function Appointments(props) {
   const theme = useTheme();
@@ -16,7 +17,7 @@ export default function Appointments(props) {
 
   const loadData = () => {
     utils
-      .post("/api/appointments/getUserAppointments")
+      .post("/api/appointments/getAllAppointments")
       .then((result) => {
         setLoading(false);
         if (result && result && result.data) {
@@ -44,9 +45,12 @@ export default function Appointments(props) {
     loadData();
   }, []);
 
-  const hendleAddNewAppointment = async (appointment) => {
+  const hendleAssignAppointment = async ({ appointmentId, GPId }) => {
     setLoading(true);
-    const result = await utils.post("/api/appointments/addNew", appointment);
+    const result = await utils.post("/api/appointments/assign", {
+      appointmentId,
+      GPId,
+    });
     setLoading(false);
     if (result && result && result.data) {
       const { isSuccess, data, msg, error, unauthorized } = result.data;
@@ -74,9 +78,9 @@ export default function Appointments(props) {
           onClose={() => setOpenSnackbar(false)}
         />
       )}
-      <Calendar
+      <CollapsibleTable
         events={events}
-        hendleAddNewAppointment={hendleAddNewAppointment}
+        hendleAssignAppointment={hendleAssignAppointment}
       />
     </>
   );

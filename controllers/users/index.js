@@ -21,4 +21,7 @@ module.exports = {
       email,
     });
   },
+  getAllGPs: async ({}, headers) => {
+    return utils.get("/users/getAllGPs", headers);
+  },
 };
