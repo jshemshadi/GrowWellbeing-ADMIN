@@ -47,6 +47,7 @@ function createData({
   GPId,
   date,
   gardianName,
+  fullName,
   contactNumber,
   DoB,
   status,
@@ -56,6 +57,7 @@ function createData({
     GPId,
     date: moment(date).format("YYYY-MM-DD"),
     gardianName,
+    fullName,
     contactNumber,
     DoB: moment(DoB).format("YYYY-MM-DD"),
     status,
@@ -87,13 +89,14 @@ function Row(props) {
         <TableCell component="th" scope="row">
           {row.date}
         </TableCell>
+        <TableCell align="right">{row.fullName}</TableCell>
         <TableCell align="right">{row.gardianName}</TableCell>
         <TableCell align="right">{row.contactNumber}</TableCell>
         <TableCell align="right">{row.DoB}</TableCell>
         <TableCell align="right">{row.status}</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box margin={1}>
               <Typography variant="h6" gutterBottom component="div">
@@ -154,6 +157,7 @@ Row.propTypes = {
     GPId: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     gardianName: PropTypes.string.isRequired,
+    fullName: PropTypes.string.isRequired,
     contactNumber: PropTypes.number.isRequired,
     DoB: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
@@ -219,6 +223,7 @@ export default function CollapsibleTable(props) {
             <TableRow>
               <TableCell />
               <TableCell>Date</TableCell>
+              <TableCell align="right">Full Name</TableCell>
               <TableCell align="right">Gardian Name</TableCell>
               <TableCell align="right">Contact Number</TableCell>
               <TableCell align="right">Date of Birth</TableCell>

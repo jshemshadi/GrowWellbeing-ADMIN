@@ -49,6 +49,7 @@
   "appointmentModal_title": "Set an Appointment",
   "appointmentModal_description": "Selected Date",
   "appointmentModal_dob": "DoB",
+  "appointmentModal_fullName": "Full Name",
   "appointmentModal_gardianName": "Gardian Name",
   "appointmentModal_contactNumber": "Contact Number",
   "appointmentModal_address": "Address",

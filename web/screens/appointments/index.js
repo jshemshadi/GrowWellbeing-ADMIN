@@ -79,6 +79,7 @@ export default function Appointments(props) {
         />
       )}
       <CollapsibleTable
+        initialView={"dayGridMonth"}
         events={events}
         hendleAssignAppointment={hendleAssignAppointment}
       />

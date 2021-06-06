@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
+import listPlugin from "@fullcalendar/list";
 
 import style from "./style.scss";
 import AppointmentModal from "../AppointmentModal";
@@ -10,8 +11,8 @@ import moment from "moment";
 export default function Calendar(props) {
   const statusColor = {
     pending: "warning",
-    assigned: "info",
-    completed: "success",
+    assigned: "success",
+    completed: "light",
     canceled: "danger",
   };
   const [openModal, setOpenModal] = useState(false);
@@ -22,8 +23,8 @@ export default function Calendar(props) {
     <>
       <FullCalendar
         timeZone={"UTC"}
-        plugins={[interactionPlugin, dayGridPlugin]}
-        initialView={"dayGridMonth"}
+        plugins={[interactionPlugin, dayGridPlugin, listPlugin]}
+        initialView={props.initialView}
         selectable={true}
         dateClick={(info) => {
           setSelectedAppointment(null);
@@ -49,14 +50,18 @@ export default function Calendar(props) {
           }
           return allow;
         }}
+        eventDidMount={(info) => {}}
         events={props.events.map((item) => {
           return {
+            title: `${item.fullName} (${item.status})`,
+            description: item.status,
             DoB: item.DoB,
             GPId: item.GPId,
             address: item.address,
             contactNumber: item.contactNumber,
             date: moment(item.date).format("YYYY-MM-DD"),
             gardianName: item.gardianName,
+            fullName: item.fullName,
             guid: item.guid,
             schollId: item.schollId,
             status: item.status,
