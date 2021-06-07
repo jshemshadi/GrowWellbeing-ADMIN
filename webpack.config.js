@@ -33,7 +33,7 @@ module.exports = (devMode) => {
 
   return {
     mode: devMode ? "development" : "production",
-    watch: devMode,
+    watch: devMode ? true : false,
     entry: {
       index: ["./web/bootstrap.js"],
     },
@@ -73,6 +73,10 @@ module.exports = (devMode) => {
               loader: "file-loader",
             },
           ],
+        },
+        {
+          test: /\.md$/,
+          loader: "raw-loader",
         },
       ],
     },
