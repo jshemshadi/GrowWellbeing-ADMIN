@@ -178,13 +178,6 @@ export default function MyAppBar(props) {
       >
         {t("appbar_profile")}
       </MenuItem>
-      <MenuItem
-        onClick={async () => {
-          props.history.push("/myAccount");
-        }}
-      >
-        {t("appbar_myAccount")}
-      </MenuItem>
     </Menu>
   );
 

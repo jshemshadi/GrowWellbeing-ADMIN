@@ -1,155 +1,124 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Button, Container, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import Header from "./Header";
+import MainFeaturedPost from "./MainFeaturedPost";
+import FeaturedPost from "./FeaturedPost";
+import Main from "./Main";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
+import post1 from "./blog-post.1.md";
+import post2 from "./blog-post.2.md";
+import post3 from "./blog-post.3.md";
 
-import i18n, { t } from "../../i18n";
-
-// import useStyles from "./style";
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  termsHeader: {
-    backgroundColor: theme.palette.primary.main,
-    height: 140,
-    color: "#FAFAFA",
+  mainGrid: {
+    marginTop: theme.spacing(3),
   },
 }));
 
+const sections = [
+  { title: "Technology", url: "#" },
+  { title: "Design", url: "#" },
+  { title: "Culture", url: "#" },
+  { title: "Business", url: "#" },
+  { title: "Politics", url: "#" },
+  { title: "Opinion", url: "#" },
+  { title: "Science", url: "#" },
+  { title: "Health", url: "#" },
+  { title: "Style", url: "#" },
+  { title: "Travel", url: "#" },
+];
+
+const mainFeaturedPost = {
+  title: "Title of a longer featured blog post",
+  description:
+    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+  image: "https://source.unsplash.com/random",
+  imgText: "main image description",
+  linkText: "Continue reading…",
+};
+
+const featuredPosts = [
+  {
+    title: "Featured post",
+    date: "Nov 12",
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    image: "https://source.unsplash.com/random",
+    imageText: "Image Text",
+  },
+  {
+    title: "Post title",
+    date: "Nov 11",
+    description:
+      "This is a wider card with supporting text below as a natural lead-in to additional content.",
+    image: "https://source.unsplash.com/random",
+    imageText: "Image Text",
+  },
+];
+
+const posts = [post1, post2, post3];
+
+const sidebar = {
+  title: "About",
+  description:
+    "Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.",
+  archives: [
+    { title: "March 2020", url: "#" },
+    { title: "February 2020", url: "#" },
+    { title: "January 2020", url: "#" },
+    { title: "November 1999", url: "#" },
+    { title: "October 1999", url: "#" },
+    { title: "September 1999", url: "#" },
+    { title: "August 1999", url: "#" },
+    { title: "July 1999", url: "#" },
+    { title: "June 1999", url: "#" },
+    { title: "May 1999", url: "#" },
+    { title: "April 1999", url: "#" },
+  ],
+  social: [
+    { name: "GitHub", icon: GitHubIcon },
+    { name: "Twitter", icon: TwitterIcon },
+    { name: "Facebook", icon: FacebookIcon },
+  ],
+};
+
 export default function Home(props) {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
-    <>
-      <Grid container justify={"space-around"} className={classes.termsHeader}>
-        <Grid
-          item
-          xl={6}
-          lg={6}
-          md={6}
-          sm={6}
-          xs={12}
-          alignItems="center"
-          justify="center"
-          style={{
-            fontWeight: "bolder",
-            fontSize: "24px",
-            display: "flex",
-          }}
-        >
-          Grow Wellbeing - Admin Panel
-        </Grid>
-        <Grid
-          item
-          xl={6}
-          lg={6}
-          md={6}
-          sm={6}
-          xs={12}
-          alignItems="center"
-          justify="center"
-          style={{
-            fontWeight: "bolder",
-            fontSize: "24px",
-            display: "flex",
-          }}
-        >
-          <Button
-            variant="outlined"
-            style={{
-              color: "#FAFAFA",
-              borderColor: "#FAFAFA",
-              width: "100px",
-              margin: "0 10px 0 0",
-            }}
-            onClick={() => {
-              props.history.push("/login");
-            }}
-          >
-            {t("home_login")}
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            style={{
-              color: "#FAFAFA",
-              width: "100px",
-              margin: "0 0 0 10px",
-            }}
-            onClick={() => {
-              props.history.push("/signup");
-            }}
-          >
-            {t("home_signup")}
-          </Button>
-        </Grid>
-      </Grid>
-      <Container style={{ marginTop: "15px", textAlign: "justify" }}>
-        <div className={classes.root}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </p>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-            dolor purus non enim praesent elementum facilisis leo vel. Risus at
-            ultrices mi tempus imperdiet. Semper risus in hendrerit gravida
-            rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean
-            sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-            integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-            eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-            quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-            vivamus at augue. At augue eget arcu dictum varius duis at
-            consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-            donec massa sapien faucibus et molestie ac.
-          </p>
-        </div>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Header title="Blog" sections={sections} history={props.history} />
+        <main>
+          <MainFeaturedPost post={mainFeaturedPost} />
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
+          </Grid>
+          <Grid container spacing={5} className={classes.mainGrid}>
+            <Main title="From the firehose" posts={posts} />
+            <Sidebar
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
+            />
+          </Grid>
+        </main>
       </Container>
-    </>
+      <Footer
+        title="Footer"
+        description="Something here to give the footer a purpose!"
+      />
+    </React.Fragment>
   );
 }

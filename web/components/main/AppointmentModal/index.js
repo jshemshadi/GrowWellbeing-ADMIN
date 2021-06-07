@@ -3,12 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import CustomizedSteppers from "../stepper";
 
 import DatePicker from "../DatePicker";
 import { Button, Grid, TextField } from "@material-ui/core";
 
 import i18n, { t } from "../../../i18n";
+import CustomizedSteppers from "../stepper";
 
 const useStyles = makeStyles((theme) => ({
   modal: {

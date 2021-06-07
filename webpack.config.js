@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const RemarkHTML = require("remark-html");
 const WebpackBuildNotifierPlugin = require("webpack-build-notifier");
 const CopyPlugin = require("copy-webpack-plugin");
 
@@ -73,6 +74,10 @@ module.exports = (devMode) => {
               loader: "file-loader",
             },
           ],
+        },
+        {
+          test: /\.md$/,
+          loader: "raw-loader",
         },
       ],
     },

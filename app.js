@@ -49,7 +49,7 @@ const server = http.createServer(app);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const compiler = webpack(config(false));
+const compiler = webpack(config(process.env.NODE));
 app.use(
   webpackMiddleware(compiler, {
     publicPath: "/",
