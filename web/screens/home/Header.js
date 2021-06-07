@@ -52,19 +52,8 @@ export default function Header(props) {
           onClick={() => {
             props.history.push("/login");
           }}
-          style={{ marginRight: 5 }}
         >
           log in
-        </Button>
-        <Button
-          variant="outlined"
-          size="small"
-          onClick={() => {
-            props.history.push("/signup");
-          }}
-          style={{ marginLeft: 5 }}
-        >
-          Sign up
         </Button>
       </Toolbar>
       <Toolbar
