@@ -74,10 +74,6 @@ module.exports = (devMode) => {
             },
           ],
         },
-        {
-          test: /\.md$/,
-          loader: "raw-loader",
-        },
       ],
     },
     plugins,
