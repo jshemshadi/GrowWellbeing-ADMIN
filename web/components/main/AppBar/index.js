@@ -252,9 +252,16 @@ export default function MyAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Grow Wellbeing
-          </Typography>
+          <div
+            onClick={async () => {
+              props.history.push("/");
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            <Typography className={classes.title} variant="h6" noWrap>
+              Grow Wellbeing
+            </Typography>
+          </div>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
