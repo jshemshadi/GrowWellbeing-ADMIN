@@ -149,16 +149,6 @@ export default function Header(props) {
             >
               log in
             </Button>
-            <Button
-              variant="outlined"
-              size="small"
-              onClick={() => {
-                props.history.push("/signup");
-              }}
-              style={{ marginLeft: 5 }}
-            >
-              Sign up
-            </Button>{" "}
           </>
         ) : (
           <IconButton
