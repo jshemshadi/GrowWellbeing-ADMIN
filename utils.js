@@ -85,10 +85,7 @@ module.exports = {
         for (const propKey of keys) {
           const prop = data[propKey];
           if (prop) {
-            if (
-              !["images", "userManual"].includes(propKey) ||
-              typeof prop === "string"
-            ) {
+            if (!["avatar"].includes(propKey) || typeof prop === "string") {
               if (Array.isArray(prop)) {
                 formData.append(propKey, JSON.stringify(prop));
               } else {

@@ -27,6 +27,14 @@ const useStyles = makeStyles((theme) => ({
 export default function AppointmentModal(props) {
   const classes = useStyles();
   const [appointment, setAppointment] = useState({ date: props.date });
+
+  const statusStep = {
+    pending: 0,
+    assigned: 1,
+    completed: 2,
+    canceled: 3,
+  };
+
   useEffect(() => {
     if (props.appointment) {
       setAppointment(props.appointment);
@@ -61,7 +69,7 @@ export default function AppointmentModal(props) {
             <p id="transition-modal-description">{`${t(
               "appointmentModal_description"
             )}: ${props.date}`}</p>
-            <Grid style={{ width: 250 }}>
+            <Grid>
               <DatePicker
                 value={appointment.DoB ? new Date(appointment.DoB) : null}
                 setValue={(newDoB) => {
@@ -70,7 +78,7 @@ export default function AppointmentModal(props) {
                 label={t("appointmentModal_dob")}
               />
             </Grid>
-            <Grid style={{ width: 250 }}>
+            <Grid>
               <TextField
                 required
                 id="fullName_text"
@@ -86,7 +94,7 @@ export default function AppointmentModal(props) {
                 }}
               />
             </Grid>
-            <Grid style={{ width: 250, marginTop: 5 }}>
+            <Grid style={{ marginTop: 5 }}>
               <TextField
                 required
                 id="gardianName_text"
@@ -102,7 +110,7 @@ export default function AppointmentModal(props) {
                 }}
               />
             </Grid>
-            <Grid style={{ width: 250, marginTop: 5 }}>
+            <Grid style={{ marginTop: 5 }}>
               <TextField
                 required
                 id="contactNumber_text"
@@ -118,13 +126,13 @@ export default function AppointmentModal(props) {
                 }}
               />
             </Grid>
-            <Grid style={{ width: 250, marginTop: 5 }}>
+            <Grid style={{ marginTop: 5 }}>
               <TextField
                 required
                 id="address_text"
                 disabled={!!props.appointment}
                 multiline
-                rows={4}
+                rows={2}
                 label={t("appointmentModal_address")}
                 value={appointment.address}
                 fullWidth={true}
@@ -136,12 +144,12 @@ export default function AppointmentModal(props) {
                 }}
               />
             </Grid>
-            <Grid style={{ width: 250, marginTop: 5 }}>
+            <Grid style={{ marginTop: 5 }}>
               <TextField
                 id="summary_text"
                 multiline
                 disabled={!!props.appointment}
-                rows={4}
+                rows={2}
                 label={t("appointmentModal_summary")}
                 value={appointment.summary}
                 fullWidth={true}
@@ -163,23 +171,20 @@ export default function AppointmentModal(props) {
               }}
             />
             <CustomizedSteppers
-              currentStep={1}
-              steps={[
-                "Set by School",
-                "Assigne by Admin",
-                "Confirm by GP",
-                "Complete by GP",
-              ]}
+              currentStep={
+                props.appointment ? statusStep[props.appointment.status] : 0
+              }
+              steps={["Requested", "Assigned", "Confirmed", "Completed"]}
               getStepContent={(step) => {
                 switch (step) {
                   case 0:
-                    return "Set an Appointment by school";
+                    return "Appointment has been requested by the school and waiting for the Admin's approval.";
                   case 1:
-                    return "Assigned this Appointment to GP by Admin";
+                    return "Admin approved the appointment and has allocateded to a GP.";
                   case 2:
-                    return "Confirm this Appointment by GP";
+                    return "Appointment is confirmed by GP.";
                   case 3:
-                    return "Completed!";
+                    return "Appointment is completed.";
                   default:
                     return "Unknown step";
                 }
@@ -197,7 +202,6 @@ export default function AppointmentModal(props) {
                 />
                 <Grid
                   style={{
-                    width: 250,
                     display: "flex",
                     justifyContent: "center",
                   }}
@@ -209,6 +213,14 @@ export default function AppointmentModal(props) {
                       width: "100px",
                       margin: "0 10px 0 0",
                     }}
+                    disabled={
+                      !appointment.DoB ||
+                      !appointment.fullName ||
+                      !appointment.gardianName ||
+                      !appointment.contactNumber ||
+                      !appointment.address ||
+                      !appointment.summary
+                    }
                     onClick={() => {
                       props.hendleAddNewAppointment(appointment);
                       props.setOpen(false);

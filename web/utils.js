@@ -88,16 +88,39 @@ export const bindActionCreators = (actionContainerMapArray, dispatch) => {
   return allActions;
 };
 
-export const post = async (url, data = {}) => {
+export const post = async (url, data = {}, isFormData = false) => {
   let config = {};
-  if (localStorage.getItem("token")) {
-    config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    };
+  let response;
+  if (isFormData) {
+    if (localStorage.getItem("token")) {
+      config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "content-Type": "multipart/form-data",
+        },
+      };
+    }
+
+    let formData = new FormData();
+    const keys = Object.keys(data);
+    for (const propKey of keys) {
+      const prop = data[propKey];
+      if (prop !== undefined) {
+        formData.append(propKey, prop);
+      }
+    }
+    response = await axios.post(url, formData, config);
+  } else {
+    if (localStorage.getItem("token")) {
+      config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+    }
+    response = await axios.post(url, data, config);
   }
-  return axios.post(url, data, config);
+  return response;
 };
 
 export const get = async (url) => {

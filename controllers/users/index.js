@@ -24,4 +24,10 @@ module.exports = {
   getAllGPs: async ({}, headers) => {
     return utils.get("/users/getAllGPs", headers);
   },
+  profile: async ({}, headers) => {
+    return utils.get("/users/profile", headers);
+  },
+  updateProfile: async (user, headers) => {
+    return utils.patch("/users/profile", user, headers, true);
+  },
 };

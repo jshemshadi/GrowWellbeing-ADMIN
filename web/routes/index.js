@@ -11,12 +11,12 @@ import Profile from "../screens/profile";
 const Routes = () => (
   <>
     <Switch>
-      <Route exact path="/profile" component={Profile} />
       <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/users" component={Users} />
-      <Route exact path="/appointments" component={Appointments} />
-      <Route exact path="/notifications" component={Notifications} />
-      <Route exact path="/messages" component={Messages} />
+      <Route exact path="/dashboard/profile" component={Profile} />
+      <Route exact path="/dashboard/users" component={Users} />
+      <Route exact path="/dashboard/appointments" component={Appointments} />
+      <Route exact path="/dashboard/notifications" component={Notifications} />
+      <Route exact path="/dashboard/messages" component={Messages} />
     </Switch>
   </>
 );

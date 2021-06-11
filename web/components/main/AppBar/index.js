@@ -173,7 +173,7 @@ export default function MyAppBar(props) {
     >
       <MenuItem
         onClick={async () => {
-          props.history.push("/profile");
+          props.history.push("/dashboard/profile");
         }}
       >
         {t("appbar_profile")}
@@ -194,7 +194,7 @@ export default function MyAppBar(props) {
     >
       <MenuItem
         onClick={async () => {
-          props.history.push("/messages");
+          props.history.push("/dashboard/messages");
         }}
       >
         <IconButton aria-label="show 4 new mails" color="inherit">
@@ -206,7 +206,7 @@ export default function MyAppBar(props) {
       </MenuItem>
       <MenuItem
         onClick={async () => {
-          props.history.push("/notifications");
+          props.history.push("/dashboard/notifications");
         }}
       >
         <IconButton aria-label="show 11 new notifications" color="inherit">
@@ -218,7 +218,7 @@ export default function MyAppBar(props) {
       </MenuItem>
       <MenuItem
         onClick={async () => {
-          props.history.push("/profile");
+          props.history.push("/dashboard/profile");
         }}
       >
         <IconButton
@@ -281,7 +281,7 @@ export default function MyAppBar(props) {
               aria-label="show 4 new mails"
               color="inherit"
               onClick={async () => {
-                props.history.push("/messages");
+                props.history.push("/dashboard/messages");
               }}
             >
               <Badge badgeContent={4} color="secondary">
@@ -292,7 +292,7 @@ export default function MyAppBar(props) {
               aria-label="show 17 new notifications"
               color="inherit"
               onClick={async () => {
-                props.history.push("/notifications");
+                props.history.push("/dashboard/notifications");
               }}
             >
               <Badge badgeContent={17} color="secondary">

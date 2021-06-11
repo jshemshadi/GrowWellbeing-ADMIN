@@ -49,12 +49,23 @@ const server = http.createServer(app);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const compiler = webpack(config(process.env.NODE));
+const compiler = webpack(config(true));
 app.use(
   webpackMiddleware(compiler, {
     publicPath: "/",
     writeToDisk: true,
   })
+);
+
+app.post(
+  "/api/users/updateProfile",
+  upload.fields([{ name: "avatar", maxCount: 1 }]),
+  function (req, res, next) {
+    if (req.files && req.files.avatar && req.files.avatar.length) {
+      req.body.avatar = req.files.avatar[0];
+    }
+    next();
+  }
 );
 
 const api = require("./routes/api");

@@ -53,6 +53,8 @@ export default function LogIn(props) {
           lastName,
           email,
           mobile,
+          country,
+          state,
           guid,
           token,
           role,
@@ -62,6 +64,8 @@ export default function LogIn(props) {
         localStorage.setItem("lastName", lastName);
         localStorage.setItem("email", email);
         localStorage.setItem("mobile", mobile);
+        localStorage.setItem("country", country);
+        localStorage.setItem("state", state);
         localStorage.setItem("guid", guid);
         localStorage.setItem("token", token);
         localStorage.setItem("role", role);

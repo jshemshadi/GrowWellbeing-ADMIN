@@ -47,13 +47,13 @@ export default function NavigationList(props) {
 
       <div
         className={
-          location.pathname === "/users" ||
-          location.pathname.indexOf("/users/") === 0
+          location.pathname === "/dashboard/users" ||
+          location.pathname.indexOf("/dashboard/users/") === 0
             ? classes.active
             : null
         }
       >
-        <NavLink to="/users" exact activeClassName={classes.active}>
+        <NavLink to="/dashboard/users" exact activeClassName={classes.active}>
           <ListItem button className={classes.item}>
             <Tooltip title={t("drawer_users")}>
               <ListItemIcon className={classes.drawer_icons}>
@@ -67,13 +67,17 @@ export default function NavigationList(props) {
 
       <div
         className={
-          location.pathname === "/appointments" ||
-          location.pathname.indexOf("/appointments/") === 0
+          location.pathname === "/dashboard/appointments" ||
+          location.pathname.indexOf("/dashboard/appointments/") === 0
             ? classes.active
             : null
         }
       >
-        <NavLink to="/appointments" exact activeClassName={classes.active}>
+        <NavLink
+          to="/dashboard/appointments"
+          exact
+          activeClassName={classes.active}
+        >
           <ListItem button className={classes.item}>
             <Tooltip title={t("drawer_appointment")}>
               <ListItemIcon className={classes.drawer_icons}>

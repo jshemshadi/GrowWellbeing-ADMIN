@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 import {
   Avatar,
   Box,
@@ -8,53 +7,68 @@ import {
   CardActions,
   CardContent,
   Divider,
+  FormControl,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
+import useStyles from "./style";
+import i18n, { t } from "../../i18n";
 
-const user = {
-  avatar: "/static/images/avatars/avatar_6.png",
-  city: "Los Angeles",
-  country: "USA",
-  jobTitle: "Senior Developer",
-  name: "Katarina Smith",
-  timezone: "GTM-7",
-};
+const AccountProfile = (props) => {
+  const { user, onChange } = props;
 
-const AccountProfile = (props) => (
-  <Card {...props}>
-    <CardContent>
-      <Box
-        sx={{
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <Avatar
-          src={user.avatar}
+  const theme = useTheme();
+  const isSm = useMediaQuery(theme.breakpoints.down("sm"));
+  const classes = useStyles({ isSm });
+
+  return (
+    <Card {...props}>
+      <CardContent>
+        <Box
           sx={{
-            height: 100,
-            width: 100,
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
           }}
-        />
-        <Typography color="textPrimary" gutterBottom variant="h3">
-          {user.name}
-        </Typography>
-        <Typography color="textSecondary" variant="body1">
-          {`${user.city} ${user.country}`}
-        </Typography>
-        <Typography color="textSecondary" variant="body1">
-          {`${moment().format("hh:mm A")} ${user.timezone}`}
-        </Typography>
-      </Box>
-    </CardContent>
-    <Divider />
-    <CardActions>
-      <Button color="primary" fullWidth variant="text">
-        Upload picture
-      </Button>
-    </CardActions>
-  </Card>
-);
+        >
+          <Avatar
+            src={utils.getApiAddress() + "/" + user.avatar}
+            sx={{
+              height: 100,
+              width: 100,
+            }}
+          />
+          <Typography color="textPrimary" gutterBottom variant="h3">
+            {`${user.firstName} ${user.lastName}`}
+          </Typography>
+          <Typography color="textSecondary" variant="body1">
+            {`${user.username}`}
+          </Typography>
+          <Typography color="textSecondary" variant="body1">
+            {`${user.state} ${user.country}`}
+          </Typography>
+        </Box>
+      </CardContent>
+      <Divider />
+      <CardActions>
+        <FormControl className={classes.formControl}>
+          <input
+            id="contained-button-file"
+            accept="image/*"
+            className={classes.input}
+            type="file"
+            onChange={(event) => onChange({ avatar: event.target.files[0] })}
+          />
+          <label className={classes.label} htmlFor="contained-button-file">
+            <Button color="primary" component="span" fullWidth variant="text">
+              {t("profile_uploadPicture")}
+            </Button>
+          </label>
+        </FormControl>
+      </CardActions>
+    </Card>
+  );
+};
 
 export default AccountProfile;

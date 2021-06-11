@@ -33,12 +33,11 @@ export default function Calendar(props) {
         }}
         eventClick={(event) => {
           setSelectedAppointment(event.event.extendedProps);
-          setSelectedDate(event.event.extendedProps.date);
+          setSelectedDate(event.event.extendedProps.eventDate);
           setOpenModal(true);
         }}
         eventDrop={(info) => {
           const { start, end } = info.oldEvent._instance.range;
-          console.log(start, end);
         }}
         droppable={true}
         eventAllow={(dropInfo, draggedEvent) => {
@@ -60,6 +59,7 @@ export default function Calendar(props) {
             address: item.address,
             contactNumber: item.contactNumber,
             date: moment(item.date).format("YYYY-MM-DD"),
+            eventDate: moment(item.date).format("YYYY-MM-DD"),
             fullName: item.fullName,
             gardianName: item.gardianName,
             guid: item.guid,

@@ -15,7 +15,8 @@ import ForgetPassword from "./screens/forgetPassword";
 import VerifyPasswordReset from "./screens/verifyPasswordReset";
 import NewPassword from "./screens/newPassword";
 import Layout from "./components/main/Layout";
-import Home from "./screens/home";
+import HomeLayout from "./screens/home/HomeLayout";
+import HomeRoutes from "./routes/HomeRoutes";
 
 const jss = create({ plugins: [...jssPreset().plugins] });
 
@@ -39,7 +40,6 @@ const Main = ({ history, store }) => {
           <Provider store={store}>
             <ConnectedRouter history={history}>
               <Switch>
-                <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
                 <Route
                   exact
@@ -52,9 +52,14 @@ const Main = ({ history, store }) => {
                   component={VerifyPasswordReset}
                 />
                 <Route exact path="/newPassword" component={NewPassword} />
-                <Layout history={history}>
+
+                <Layout path="/dashboard" history={history}>
                   <Routes />
                 </Layout>
+
+                <HomeLayout path="/" history={history}>
+                  <HomeRoutes />
+                </HomeLayout>
               </Switch>
             </ConnectedRouter>
           </Provider>

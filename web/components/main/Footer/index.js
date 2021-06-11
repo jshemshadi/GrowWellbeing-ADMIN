@@ -1,36 +1,56 @@
 import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Box, Container } from "@material-ui/core";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
-// import useStyles from "./style";
-
-const drawerWidth = 240;
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://www.growwellbeing.com/">
+        Grow Wellbeing Service
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    // marginTop: theme.spacing(8),
+    padding: theme.spacing(6, 0),
   },
 }));
 
 export default function Footer(props) {
   const classes = useStyles();
+  const { description, title } = props;
 
   return (
-    <footer
-      style={{ position: "fixed", bottom: 0 }}
-      className={clsx({
-        [classes.appBarShift]: props.open,
-      })}
-    >
-      <Container>
-        <Box>FOOTER</Box>
+    <footer className={classes.footer}>
+      <Container maxWidth="lg">
+        <Typography variant="h6" align="center" gutterBottom>
+          {title}
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="textSecondary"
+          component="p"
+        >
+          {description}
+        </Typography>
+        <Copyright />
       </Container>
     </footer>
   );
 }
+
+Footer.propTypes = {
+  description: PropTypes.string,
+  title: PropTypes.string,
+};

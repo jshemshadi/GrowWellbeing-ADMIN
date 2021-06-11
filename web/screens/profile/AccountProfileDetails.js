@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Box,
   Button,
@@ -9,120 +9,91 @@ import {
   Grid,
   TextField,
 } from "@material-ui/core";
+import i18n, { t } from "../../i18n";
 
-const states = [
-  {
-    value: "alabama",
-    label: "Alabama",
-  },
-  {
-    value: "new-york",
-    label: "New York",
-  },
-  {
-    value: "san-francisco",
-    label: "San Francisco",
-  },
-];
+const loadFromLocalStorage = (name) => {
+  return localStorage.getItem(`${name}`);
+};
 
 const AccountProfileDetails = (props) => {
-  const [values, setValues] = useState({
-    firstName: "Katarina",
-    lastName: "Smith",
-    email: "demo@devias.io",
-    phone: "",
-    state: "Alabama",
-    country: "USA",
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
+  const { user, onSubmit, onChange } = props;
+  const { firstName, lastName, email, mobile, country, state } = user;
 
   return (
     <form autoComplete="off" noValidate {...props}>
       <Card>
-        <CardHeader subheader="The information can be edited" title="Profile" />
+        <CardHeader
+          subheader={t("profile_subheader")}
+          title={t("profile_title")}
+        />
         <Divider />
         <CardContent>
           <Grid container spacing={3}>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Please specify the first name"
-                label="First name"
+                label={t("profile_firstName")}
                 name="firstName"
-                onChange={handleChange}
+                onChange={onChange}
                 required
-                value={values.firstName}
+                value={firstName}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Last name"
+                label={t("profile_lastName")}
                 name="lastName"
-                onChange={handleChange}
+                onChange={onChange}
                 required
-                value={values.lastName}
+                value={lastName}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Email Address"
+                label={t("profile_emailAddress")}
                 name="email"
-                onChange={handleChange}
+                onChange={onChange}
                 required
-                value={values.email}
+                value={email}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Phone Number"
-                name="phone"
-                onChange={handleChange}
-                type="number"
-                value={values.phone}
+                label={t("profile_mobile")}
+                name="mobile"
+                onChange={onChange}
+                required
+                value={mobile}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Country"
+                label={t("profile_country")}
                 name="country"
-                onChange={handleChange}
+                onChange={onChange}
                 required
-                value={values.country}
+                value={country}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Select State"
+                label={t("profile_state")}
                 name="state"
-                onChange={handleChange}
+                onChange={onChange}
                 required
-                select
-                SelectProps={{ native: true }}
-                value={values.state}
+                value={state}
                 variant="outlined"
-              >
-                {states.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
+              />
             </Grid>
           </Grid>
         </CardContent>
@@ -134,8 +105,26 @@ const AccountProfileDetails = (props) => {
             p: 2,
           }}
         >
-          <Button color="primary" variant="contained">
-            Save details
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={onSubmit}
+            disabled={
+              !firstName.length ||
+              !lastName.length ||
+              !email.length ||
+              !mobile.length ||
+              !country.length ||
+              !state.length ||
+              (firstName === loadFromLocalStorage("firstName") &&
+                lastName === loadFromLocalStorage("lastName") &&
+                email === loadFromLocalStorage("email") &&
+                mobile === loadFromLocalStorage("mobile") &&
+                country === loadFromLocalStorage("country") &&
+                state === loadFromLocalStorage("state"))
+            }
+          >
+            {t("profile_saveDetails")}
           </Button>
         </Box>
       </Card>

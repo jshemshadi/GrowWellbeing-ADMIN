@@ -3,6 +3,8 @@
   "successful": "Successful",
 
   "appbar_profile": "Profile",
+  "appbar_dashboard": "Dashboard",
+  "appbar_signout": "Sign out",
   "appbar_messages": "Messages",
   "appbar_notifications": "Notifications",
 
@@ -54,5 +56,16 @@
   "appointmentModal_address": "Address",
   "appointmentModal_summary": "Summary",
   "appointmentModal_submit": "Submit",
-  "appointmentModal_cancel": "Cancel"
+  "appointmentModal_cancel": "Cancel",
+
+  "profile_title": "Profile",
+  "profile_subheader": "The information can be edited",
+  "profile_uploadPicture": "Upload Picture",
+  "profile_saveDetails": "Save Details",
+  "profile_firstName": "First Name",
+  "profile_lastName": "Last Name",
+  "profile_emailAddress": "Email Address",
+  "profile_mobile": "Mobile",
+  "profile_country": "Country",
+  "profile_state": "State"
 }
