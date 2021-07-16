@@ -140,3 +140,46 @@ export const get = async (url) => {
 export const getApiAddress = () => {
   return "http://localhost:8000";
 };
+
+export const getNextWeekDate = () => {
+  const now = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDate()
+  );
+  const today = now.getDay();
+  const dayToStartNextWeek = today === 0 ? 7 : 7 - today;
+  const nextWeekStartDate = new Date(
+    now.getTime() + dayToStartNextWeek * 24 * 60 * 60 * 1000
+  );
+  const nextWeekEndDate = new Date(
+    nextWeekStartDate.getTime() + 7 * 24 * 60 * 60 * 1000
+  );
+  return { from: nextWeekStartDate, to: nextWeekEndDate };
+};
+
+export const formatDate = (date, withTime = false) => {
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let result = `${date.getDate()} ${
+    monthNames[date.getMonth()]
+  }, ${date.getFullYear()}`;
+
+  if (withTime) {
+    result += ` ${date.getHours()}:${date.getMinutes()}`;
+  }
+
+  return result;
+};

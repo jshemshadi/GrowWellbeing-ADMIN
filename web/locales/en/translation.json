@@ -66,5 +66,17 @@
   "profile_emailAddress": "Email Address",
   "profile_mobile": "Mobile",
   "profile_country": "Country",
-  "profile_state": "State"
+  "profile_state": "State",
+
+  "dashboard_chartTitle_appointments": "Appointment`s (Next week)",
+  "dashboard_y_Title_appointments": "Appointment`s",
+  "dashboard_recent_title": "Recent booking`s",
+  "dashboard_recent_from": "from",
+  "dashboard_recent_viewDetail": "View detail",
+  "dashboard_recentTable_title": "Recent booking`s",
+  "dashboard_recentTable_seeMore": "See more booking`s",
+  "dashboard_recentTable_date": "Date Time",
+  "dashboard_recentTable_school": "School",
+  "dashboard_recentTable_user": "User",
+  "dashboard_recentTable_status": "Status"
 }

@@ -1,20 +1,32 @@
 module.exports = {
-  getAllAppointments: async ({ search, page, limit, sort }, headers) => {
+  getAllAppointments: async (
+    { search, page, limit, sort, from, to, createAfter },
+    headers
+  ) => {
     let url = "/appointments/getAllAppointments";
-    if (search || page || limit || sort) {
+    if (search || page || limit || sort || from || to || createAfter) {
       url += "?";
     }
     if (search) {
       url += `search=${search}`;
     }
     if (page) {
-      url += `search=${page}`;
+      url += `page=${page}`;
     }
     if (limit) {
-      url += `search=${limit}`;
+      url += `limit=${limit}`;
     }
     if (sort) {
-      url += `search=${sort}`;
+      url += `sort=${sort}`;
+    }
+    if (from) {
+      url += `from=${from}`;
+    }
+    if (to) {
+      url += `to=${to}`;
+    }
+    if (createAfter) {
+      url += `createAfter=${createAfter}`;
     }
     return utils.get(url, headers);
   },
