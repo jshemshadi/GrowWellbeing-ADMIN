@@ -8,22 +8,22 @@ module.exports = {
       url += "?";
     }
     if (search) {
-      url += `search=${search}`;
+      url += `search=${search}&`;
     }
     if (page) {
-      url += `page=${page}`;
+      url += `page=${page}&`;
     }
     if (limit) {
-      url += `limit=${limit}`;
+      url += `limit=${limit}&`;
     }
     if (sort) {
-      url += `sort=${sort}`;
+      url += `sort=${sort}&`;
     }
     if (from) {
-      url += `from=${from}`;
+      url += `from=${from}&`;
     }
     if (to) {
-      url += `to=${to}`;
+      url += `to=${to}&`;
     }
     if (createAfter) {
       url += `createAfter=${createAfter}`;

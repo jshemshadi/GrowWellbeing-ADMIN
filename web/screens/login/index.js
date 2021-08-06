@@ -53,8 +53,6 @@ export default function LogIn(props) {
           lastName,
           email,
           mobile,
-          country,
-          state,
           guid,
           token,
           role,
@@ -64,8 +62,6 @@ export default function LogIn(props) {
         localStorage.setItem("lastName", lastName);
         localStorage.setItem("email", email);
         localStorage.setItem("mobile", mobile);
-        localStorage.setItem("country", country);
-        localStorage.setItem("state", state);
         localStorage.setItem("guid", guid);
         localStorage.setItem("token", token);
         localStorage.setItem("role", role);
@@ -77,6 +73,11 @@ export default function LogIn(props) {
     } else {
       setMessage({ text: t("someThingWrong"), type: "error" });
       setOpenSnackbar(true);
+    }
+  };
+  const hendleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      hendleLogin();
     }
   };
 
@@ -109,7 +110,7 @@ export default function LogIn(props) {
         xs={12}
         style={{ margin: "50px 0" }}
       >
-        <div className={classes.login_form}>
+        <div className={classes.login_form} onKeyDown={hendleKeyDown}>
           <Typography
             align="center"
             color={"primary"}

@@ -178,8 +178,12 @@ export const formatDate = (date, withTime = false) => {
   }, ${date.getFullYear()}`;
 
   if (withTime) {
-    result += ` ${date.getHours()}:${date.getMinutes()}`;
+    result += ` ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   }
 
   return result;
+};
+
+export const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 };

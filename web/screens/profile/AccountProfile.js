@@ -40,13 +40,15 @@ const AccountProfile = (props) => {
             }}
           />
           <Typography color="textPrimary" gutterBottom variant="h3">
-            {`${user.firstName} ${user.lastName}`}
+            {`${utils.capitalizeFirstLetter(
+              user.firstName
+            )} ${utils.capitalizeFirstLetter(user.lastName)}`}
           </Typography>
           <Typography color="textSecondary" variant="body1">
-            {`${user.username}`}
+            {`${user.username} (username)`}
           </Typography>
           <Typography color="textSecondary" variant="body1">
-            {`${user.state} ${user.country}`}
+            {`${utils.capitalizeFirstLetter(user.role)} (role)`}
           </Typography>
         </Box>
       </CardContent>

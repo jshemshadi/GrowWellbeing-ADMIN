@@ -21,15 +21,17 @@ export default function Chart(props) {
 
   const loadData = () => {
     const { appointments } = props;
-    let results = _.groupBy(appointments, (appointment) => appointment.GPId);
     let finalResult = [];
-    for (const res of Object.values(results)) {
-      finalResult.push({
-        name: res[0].GP.username,
-        GP: res.length,
-      });
+    if (appointments && appointments.length) {
+      let results = _.groupBy(appointments, (appointment) => appointment.GPId);
+      for (const res of Object.values(results)) {
+        finalResult.push({
+          name: res[0].GP.username,
+          GP: res.length,
+        });
+      }
+      finalResult = _.sortBy(finalResult, (gp) => gp.name);
     }
-    finalResult = _.sortBy(finalResult, (gp) => gp.name);
     setEvents(finalResult);
   };
 

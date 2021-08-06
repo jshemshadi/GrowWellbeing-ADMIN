@@ -53,6 +53,11 @@ export default function VerifyPasswordReset(props) {
       }
     }
   };
+  const hendleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      hendleVerifyPasswordReset();
+    }
+  };
 
   const handleResend = async () => {
     setLoading(true);
@@ -104,7 +109,10 @@ export default function VerifyPasswordReset(props) {
         xs={12}
         style={{ margin: "50px 0" }}
       >
-        <div className={classes.verifyPasswordReset_form}>
+        <div
+          className={classes.verifyPasswordReset_form}
+          onKeyDown={hendleKeyDown}
+        >
           <Typography
             align="center"
             color={"primary"}

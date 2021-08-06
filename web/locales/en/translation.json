@@ -40,6 +40,8 @@
 
   "drawer_dashboard": "Dashboard",
   "drawer_users": "Users",
+  "drawer_courses": "Courses",
+  "drawer_staffTraining": "Staff Training",
   "drawer_appointment": "Appointments",
   "drawer_signout": "Sign out",
 
@@ -65,8 +67,6 @@
   "profile_lastName": "Last Name",
   "profile_emailAddress": "Email Address",
   "profile_mobile": "Mobile",
-  "profile_country": "Country",
-  "profile_state": "State",
 
   "dashboard_chartTitle_appointments": "Appointment`s (Next week)",
   "dashboard_y_Title_appointments": "Appointment`s",
@@ -78,5 +78,20 @@
   "dashboard_recentTable_date": "Date Time",
   "dashboard_recentTable_school": "School",
   "dashboard_recentTable_user": "User",
-  "dashboard_recentTable_status": "Status"
+  "dashboard_recentTable_status": "Status",
+
+  "newUser_title": "Add new user",
+  "newUser_chooseAccountType": "Choose Account Type",
+  "newUser_accountType_admin": "Admin",
+  "newUser_accountType_staff": "Staff",
+  "newUser_accountType_school": "School",
+  "newUser_accountType_gp": "GP",
+  "newUser_firstNameHelper": "First Name",
+  "newUser_lastNameHelper": "Last Name",
+  "newUser_emailHelper": "Email",
+  "newUser_mobileHelper": "Mobile",
+  "newUser_usernameHelper": "Username",
+  "newUser_passwordHelper": "Password",
+  "newUser_repeatPasswordHelper": "Repeat Password",
+  "newUser_newUserBtn": "Submit"
 }

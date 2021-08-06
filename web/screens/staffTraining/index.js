@@ -19,8 +19,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
 import FilterListIcon from "@material-ui/icons/FilterList";
+
 import CustomizedSnackbars from "../../components/main/Snakbar";
 
 const headCells = [
@@ -152,20 +152,9 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-          USERS
+          STAFF TRAINING
         </Typography>
       )}
-
-      <Tooltip title={"Add"}>
-        <IconButton
-          aria-label={"Add"}
-          onClick={() => {
-            props.history.push("/dashboard/newUser");
-          }}
-        >
-          <AddCircleIcon style={{ color: "#23d000" }} />
-        </IconButton>
-      </Tooltip>
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
@@ -228,7 +217,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Users(props) {
+export default function StaffTraining(props) {
   const classes = useStyles();
 
   const [users, setUsers] = useState([]);
@@ -399,10 +388,7 @@ export default function Users(props) {
       )}
       <div className={classes.root}>
         <Paper className={classes.paper}>
-          <EnhancedTableToolbar
-            history={props.history}
-            numSelected={selected.length}
-          />
+          <EnhancedTableToolbar numSelected={selected.length} />
           <TableContainer>
             <Table
               className={classes.table}

@@ -19,16 +19,16 @@ const loadFromLocalStorage = (name) => {
   return localStorage.getItem(`${name}`);
 };
 
-const Profile = () => {
+const Profile = (props) => {
+  const userGUID = props.match.params.userGUID;
   const [user, setUser] = useState({
-    mobile: loadFromLocalStorage("mobile") || "",
-    firstName: loadFromLocalStorage("firstName") || "",
-    lastName: loadFromLocalStorage("lastName") || "",
-    username: loadFromLocalStorage("username") || "",
-    country: loadFromLocalStorage("country") || "",
-    state: loadFromLocalStorage("state") || "",
-    email: loadFromLocalStorage("email") || "",
-    avatar: loadFromLocalStorage("avatar") || "",
+    mobile: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    avatar: "",
+    role: "",
   });
 
   const theme = useTheme();
@@ -41,7 +41,7 @@ const Profile = () => {
 
   const loadData = () => {
     utils
-      .post("/api/users/profile")
+      .post("/api/users/profile", { userGUID })
       .then((result) => {
         setLoading(false);
         if (result && result && result.data) {
@@ -53,8 +53,6 @@ const Profile = () => {
               lastName,
               email,
               mobile,
-              country,
-              state,
               guid,
               role,
               avatar,
@@ -64,20 +62,17 @@ const Profile = () => {
             localStorage.setItem("lastName", lastName);
             localStorage.setItem("email", email);
             localStorage.setItem("mobile", mobile);
-            localStorage.setItem("country", country);
-            localStorage.setItem("state", state);
             localStorage.setItem("guid", guid);
             localStorage.setItem("role", role);
             localStorage.setItem("avatar", avatar);
             setUser({
-              mobile: loadFromLocalStorage("mobile") || "",
-              firstName: loadFromLocalStorage("firstName") || "",
-              lastName: loadFromLocalStorage("lastName") || "",
-              username: loadFromLocalStorage("username") || "",
-              country: loadFromLocalStorage("country") || "",
-              state: loadFromLocalStorage("state") || "",
-              email: loadFromLocalStorage("email") || "",
-              avatar: loadFromLocalStorage("avatar") || "",
+              mobile: mobile,
+              firstName: firstName,
+              lastName: lastName,
+              username: username,
+              email: email,
+              avatar: avatar,
+              role: role,
             });
           } else {
             setMessage({ text: error, type: "error" });
@@ -101,7 +96,7 @@ const Profile = () => {
 
   const hendleUpdateProfile = async ({ avatar }) => {
     setLoading(true);
-    const { firstName, lastName, email, mobile, country, state } = user;
+    const { firstName, lastName, email, mobile } = user;
     const result = await utils.post(
       "/api/users/updateProfile",
       {
@@ -109,9 +104,8 @@ const Profile = () => {
         lastName,
         email,
         mobile,
-        country,
-        state,
         avatar,
+        userGUID,
       },
       true
     );

@@ -11,6 +11,7 @@ import {
 
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
 import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
+// import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 import i18n, { t } from "../../../../i18n";
 import style from "./style";
@@ -61,6 +62,50 @@ export default function NavigationList(props) {
               </ListItemIcon>
             </Tooltip>
             <ListItemText primary={t("drawer_users")} />
+          </ListItem>
+        </NavLink>
+      </div>
+
+      <div
+        className={
+          location.pathname === "/dashboard/courses" ||
+          location.pathname.indexOf("/dashboard/courses/") === 0
+            ? classes.active
+            : null
+        }
+      >
+        <NavLink to="/dashboard/courses" exact activeClassName={classes.active}>
+          <ListItem button className={classes.item}>
+            <Tooltip title={t("drawer_courses")}>
+              <ListItemIcon className={classes.drawer_icons}>
+                <PeopleAltOutlinedIcon />
+              </ListItemIcon>
+            </Tooltip>
+            <ListItemText primary={t("drawer_courses")} />
+          </ListItem>
+        </NavLink>
+      </div>
+
+      <div
+        className={
+          location.pathname === "/dashboard/staffTraining" ||
+          location.pathname.indexOf("/dashboard/staffTraining/") === 0
+            ? classes.active
+            : null
+        }
+      >
+        <NavLink
+          to="/dashboard/staffTraining"
+          exact
+          activeClassName={classes.active}
+        >
+          <ListItem button className={classes.item}>
+            <Tooltip title={t("drawer_staffTraining")}>
+              <ListItemIcon className={classes.drawer_icons}>
+                {/* <AddOutlinedIcon /> */}
+              </ListItemIcon>
+            </Tooltip>
+            <ListItemText primary={t("drawer_staffTraining")} />
           </ListItem>
         </NavLink>
       </div>

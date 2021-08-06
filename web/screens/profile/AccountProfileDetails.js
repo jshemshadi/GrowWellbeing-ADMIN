@@ -17,7 +17,7 @@ const loadFromLocalStorage = (name) => {
 
 const AccountProfileDetails = (props) => {
   const { user, onSubmit, onChange } = props;
-  const { firstName, lastName, email, mobile, country, state } = user;
+  const { firstName, lastName, email, mobile } = user;
 
   return (
     <form autoComplete="off" noValidate {...props}>
@@ -68,30 +68,7 @@ const AccountProfileDetails = (props) => {
                 label={t("profile_mobile")}
                 name="mobile"
                 onChange={onChange}
-                required
                 value={mobile}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label={t("profile_country")}
-                name="country"
-                onChange={onChange}
-                required
-                value={country}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label={t("profile_state")}
-                name="state"
-                onChange={onChange}
-                required
-                value={state}
                 variant="outlined"
               />
             </Grid>
@@ -113,15 +90,10 @@ const AccountProfileDetails = (props) => {
               !firstName.length ||
               !lastName.length ||
               !email.length ||
-              !mobile.length ||
-              !country.length ||
-              !state.length ||
               (firstName === loadFromLocalStorage("firstName") &&
                 lastName === loadFromLocalStorage("lastName") &&
                 email === loadFromLocalStorage("email") &&
-                mobile === loadFromLocalStorage("mobile") &&
-                country === loadFromLocalStorage("country") &&
-                state === loadFromLocalStorage("state"))
+                mobile === loadFromLocalStorage("mobile"))
             }
           >
             {t("profile_saveDetails")}
